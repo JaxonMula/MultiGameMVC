@@ -1,0 +1,54 @@
+@model IEnumerable<MultiGame.Models.CommentModel>
+
+@{
+    ViewData["Title"] = "All Comments For This Post";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a class="text-warning" asp-action="Create">Leave a Comment</a>
+
+<div>
+    <table class="table table-striped-colums table-hover table-bordered border-dark">
+        <thead>
+            <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.PostId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlayerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommentText)           
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCommented)
+                </th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                
+                <td>
+                    @comment.PostId
+                </td>
+                <td>
+                    @comment.PlayerId
+                </td>
+                <td>
+                    @comment.CommentText
+                </td>
+                <td>
+                    @comment.DateCommented
+                </td>
+            </tr>
+        }
+    </table>
+    <td>
+        @Html.ActionLink("Back", "Index", "Post")
+    </td>
+</div>

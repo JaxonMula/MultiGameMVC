@@ -1,0 +1,62 @@
+@model IEnumerable<MultiGame.Models.PostModels.PostIndex>
+
+@{
+    ViewData["Title"] = "Post Index";
+}
+<h1>@ViewData["Title"]</h1>
+
+<a class="text-warning" asp-action="Create">Create A Post</a>
+
+<div>
+    <table class="table table-striped-colums table-hover table-bordered border-dark">
+        <thead>
+            <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.PlayerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GameTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PeopleNeeded)           
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePosted)
+                </th>
+                <th>
+                    Add/See All Comments
+                </th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        @foreach (var post in Model)
+        {
+            <tr>
+                
+                <td>
+                    @post.PlayerId
+                </td>
+                <td>
+                    @post.GameTitle
+                </td>
+                <td>
+                    @post.PeopleNeeded
+                </td>
+                <td>
+                    @post.Description
+                </td>
+                <td>
+                    @post.DatePosted
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Index", "Comment", new {postid = post.Id})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

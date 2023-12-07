@@ -1,0 +1,48 @@
+@model IEnumerable<MultiGame.Models.PlayerModels.PlayerIndex>
+
+@{
+    ViewData["Title"] = "All Players";
+}
+<h1>@ViewData["Title"]</h1>
+
+<a class="text-warning" asp-action="Create">Create A Player</a>
+
+<div>
+    <table class="table table-striped-colums table-hover table-bordered border-dark">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FavoriteGame)
+                </th>
+                <th>
+                    Stats
+                </th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>
+                    @player.Id
+                </td>
+                <td>
+                    @player.UserName
+                </td>
+                <td>
+                    @player.FavoriteGame
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "FavoriteGameStats", new {playerid = player.Id}, null)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

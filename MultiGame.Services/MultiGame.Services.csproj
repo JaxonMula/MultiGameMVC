@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiGame.Data\MultiGame.Data.csproj" />
+    <ProjectReference Include="..\MultiGame.Models\MultiGame.Models.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>c24fe12f-28a5-4ace-aacf-9e6951c8de0e</UserSecretsId>
+  </PropertyGroup>
+
+</Project>

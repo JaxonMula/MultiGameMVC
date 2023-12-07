@@ -1,0 +1,39 @@
+@model IEnumerable<MultiGame.Models.GamesModel>
+
+@{
+    ViewData["Title"] = "All Games";
+}
+
+<h1>All Games</h1>
+
+<p>Don't see your favorite game?<p>
+<a class="text-warning" asp-action="Create">Add Game</a>
+
+<div>
+    <table class="table table-striped-colums table-hover table-bordered border-dark">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.GameTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach( var game in Model)
+            {
+                <tr>
+                    <td>
+                        @game.GameTitle
+                    </td>
+                    <td>
+                        @game.Id
+                    </td>
+                </tr>
+            }
+        </tbody>
+</div>

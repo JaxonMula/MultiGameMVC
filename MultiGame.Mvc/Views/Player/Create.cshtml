@@ -1,0 +1,44 @@
+@model MultiGame.Models.PlayerModels.PlayerCreate
+
+@{
+    ViewData["Title"] = "Create A Player";
+}
+
+<h1>Create A Player</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary = "ModelOnly" class = "text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input type ="int" asp-for="UserName" class="form-control" placeholder="" />
+                <span asp-validation-for= "UserName" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input type ="int" asp-for="Email" class="form-control" placeholder="ExampleEmail@gmail.com" />
+                <span asp-validation-for= "Email" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input type ="int" asp-for="Password" class="form-control" placeholder="" />
+                <span asp-validation-for= "Password" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FavoriteGame" class="control-label"></label>
+                <input type ="text" asp-for="FavoriteGame" class="form-control" placeholder="Ex: CSGO 2" />
+                <span asp-validation-for= "FavoriteGame" class = "text-danger"></span>
+            </div>
+            <br />
+            <hr />   
+            <div class = "form-group">
+                <input type = "submit" value = "Create" class="btn btn-warning" />
+            </div>
+        </form>
+        <br />
+        <div>
+            <a asp-action = "Index" class="text-dark">Back To All Players</a>
+        </div>
+    </div>
+</div>

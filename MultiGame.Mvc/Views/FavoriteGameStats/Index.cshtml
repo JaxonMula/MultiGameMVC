@@ -1,0 +1,20 @@
+@model IEnumerable<MultiGame.Models.CommentModel>
+
+
+@{
+    ViewData["Title"] = "Stats Index";
+}
+
+
+<div class="container text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+
+<br>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <a asp-controller="FavoriteGameStats" asp-action="Create" class="btn btn-primary btn-lg">
+        Create Favorite Game Stats
+    </a>
+</div>
+</div>

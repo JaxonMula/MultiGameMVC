@@ -1,0 +1,29 @@
+@model MultiGame.Models.GamesModel
+
+@{
+    ViewData["Title"] = "Create A Player";
+}
+
+<h1>Add a Game</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary = "ModelOnly" class = "text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GameTitle" class="control-label"></label>
+                <input type ="int" asp-for="GameTitle" class="form-control" placeholder="" />
+                <span asp-validation-for= "GameTitle" class = "text-danger"></span>
+            </div>
+            <br />
+            <hr />   
+            <div class = "form-group">
+                <input type = "submit" value = "Add" class="btn btn-warning" />
+            </div>
+        </form>
+        <br />
+        <div>
+            <a asp-action = "Index" class="text-dark">Back To Games</a>
+        </div>
+    </div>
+</div>

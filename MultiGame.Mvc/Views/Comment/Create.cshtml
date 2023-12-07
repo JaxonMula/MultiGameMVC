@@ -1,0 +1,39 @@
+@model MultiGame.Models.CommentModel
+
+@{
+    ViewData["Title"] = "Add A Comment";
+}
+
+<h1>Add a Comment</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary = "ModelOnly" class = "text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostId" class="control-label"></label>
+                <input type ="int" asp-for="PostId" class="form-control" placeholder="" />
+                <span asp-validation-for= "PostId" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerId" class="control-label"></label>
+                <input type ="int" asp-for="PlayerId" class="form-control" placeholder="" />
+                <span asp-validation-for= "PlayerId" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommentText" class="control-label"></label>
+                <input type ="int" asp-for="CommentText" class="form-control" placeholder="" />
+                <span asp-validation-for= "CommentText" class = "text-danger"></span>
+            </div>
+            <br />
+            <hr />   
+            <div class = "form-group">
+                <input type = "submit" value = "Create" class="btn btn-warning" />
+            </div>
+        </form>
+        <br />
+        <td>
+        @Html.ActionLink("Back to Posts", "Index", "Post")
+    </td>
+    </div>
+</div>

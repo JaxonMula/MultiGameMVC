@@ -1,0 +1,46 @@
+@model MultiGame.Models.FavoriteGameStatsModel
+
+
+@{
+    ViewData["Title"] = "Create Your Stats";
+}
+
+
+<h1>Create Your Stats</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary = "ModelOnly" class = "text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerId" class="control-label"></label>
+                <input type ="int" asp-for="PlayerId" class="form-control" placeholder="Ex: 3" />
+                <span asp-validation-for= "PlayerId" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId" class="control-label"></label>
+                <input type ="int" asp-for="GameId" class="form-control" placeholder="Ex: 3" />
+                <span asp-validation-for= "GameId" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hours" class="control-label"></label>
+                <input type ="int" asp-for="Hours" class="form-control" placeholder="Ex: 300" />
+                <span asp-validation-for= "Hours" class = "text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rank" class="control-label"></label>
+                <input type ="int" asp-for="Rank" class="form-control" placeholder="Ex: Silver" />
+                <span asp-validation-for= "Rank" class = "text-danger"></span>
+            </div>
+            <br />
+            <hr />  
+            <div class = "form-group">
+                <input type = "submit" value = "Create" class="btn btn-warning" />
+            </div>
+        </form>
+        <br />
+        <td>
+        @Html.ActionLink("Back to Stats Index", "Index", "FavoriteGameStats")
+    </td>
+    </div>
+</div>

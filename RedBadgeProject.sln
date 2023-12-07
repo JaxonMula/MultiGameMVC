@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiGame.Data", "MultiGame.Data\MultiGame.Data.csproj", "{921FB8A8-8A00-4127-ACCA-B01E0B4347C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiGame.Models", "MultiGame.Models\MultiGame.Models.csproj", "{1879285E-A6A2-46B0-AE63-570F4ECFF1E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiGame.Services", "MultiGame.Services\MultiGame.Services.csproj", "{F53259E3-B148-4E2A-945A-3EDCECD2BC45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiGame.Mvc", "MultiGame.Mvc\MultiGame.Mvc.csproj", "{0211D722-4EC8-46D9-8704-105F7393BAB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{921FB8A8-8A00-4127-ACCA-B01E0B4347C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921FB8A8-8A00-4127-ACCA-B01E0B4347C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921FB8A8-8A00-4127-ACCA-B01E0B4347C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921FB8A8-8A00-4127-ACCA-B01E0B4347C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1879285E-A6A2-46B0-AE63-570F4ECFF1E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1879285E-A6A2-46B0-AE63-570F4ECFF1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1879285E-A6A2-46B0-AE63-570F4ECFF1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1879285E-A6A2-46B0-AE63-570F4ECFF1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53259E3-B148-4E2A-945A-3EDCECD2BC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53259E3-B148-4E2A-945A-3EDCECD2BC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53259E3-B148-4E2A-945A-3EDCECD2BC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53259E3-B148-4E2A-945A-3EDCECD2BC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0211D722-4EC8-46D9-8704-105F7393BAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0211D722-4EC8-46D9-8704-105F7393BAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0211D722-4EC8-46D9-8704-105F7393BAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0211D722-4EC8-46D9-8704-105F7393BAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
