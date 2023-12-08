@@ -41,4 +41,26 @@ public class CommentController : Controller
            int postId = comment.PostId;
            return RedirectToAction(nameof(Index), new {postId});
     }
+
+    [HttpPut("{commentId}")]
+    public async Task<IActionResult> UpdateCommentForPost(int postId, int commentId, CommentEntity comment)
+    {
+        var updatedComment = await _commentService.UpdateCommentForPostAsync(postId, commentId, comment);
+        if (updatedComment == null)
+        {
+            return NotFound();
+        }
+        return View(updatedComment);
+    }
+
+    [HttpDelete("{commentId}")]
+    public async Task<IActionResult> Delete(int postId, int commentId)
+    {
+        var deleted = await _commentService.DeleteCommentForPostAsync(postId, commentId);
+        if (!deleted)
+        {
+            return NotFound();
+        }
+        return View(new { message = "Comment deleted" });
+    }
 }

@@ -11,7 +11,9 @@
     <table class="table table-striped-colums table-hover table-bordered border-dark">
         <thead>
             <tr>
-                
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.PlayerId)
                 </th>
@@ -37,7 +39,9 @@
         @foreach (var post in Model)
         {
             <tr>
-                
+                <td>
+                    @post.Id
+                </td>
                 <td>
                     @post.PlayerId
                 </td>

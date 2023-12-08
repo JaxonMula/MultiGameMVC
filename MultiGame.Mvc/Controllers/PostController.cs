@@ -14,13 +14,13 @@ public class PostController : Controller
         _postService = postService;
     }
 
-    public async Task<IActionResult> Index() //return a list of all the posts in the database
+    public async Task<IActionResult> Index()
         {
             var posts = await _postService.GetAllPostsAsync();
             return View(posts);
         }
 
-    public async Task<IActionResult> Details(int id) //return the comments for the post by the postid
+    public async Task<IActionResult> Details(int id)
         {
             var post = await _postService.GetPostByIdAsync(id);
             if (post == null)
@@ -37,7 +37,7 @@ public class PostController : Controller
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PostCreate post)//create a new post
+        public async Task<IActionResult> Create(PostCreate post)
         {
             if (!ModelState.IsValid)
             {
@@ -48,5 +48,47 @@ public class PostController : Controller
            return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            var post = await _postService.GetPostByIdAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, PostEntity post)
+        {
+            if (id != post.Id)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(post);
+            }
+
+            var updatedPost = await _postService.UpdatePostAsync(id, post);
+            if (updatedPost == null)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Details), new { id });
+        }
+
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deleted = await _postService.DeletePostAsync(id);
+            if (!deleted)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }

@@ -49,4 +49,30 @@ public class CommentService : ICommentService
         return comment;
     }
 
+    public async Task<CommentEntity?> UpdateCommentForPostAsync(int postId, int commentId, CommentEntity comment)
+    {
+        var existingComment = await _context.Comments.FirstOrDefaultAsync(c => c.PostId == postId && c.Id == commentId);
+        if (existingComment == null)
+        {
+            return null;
+        }
+
+        existingComment.CommentText = comment.CommentText;
+        await _context.SaveChangesAsync();
+        return existingComment;
+    }
+
+    public async Task<bool> DeleteCommentForPostAsync(int postId, int commentId)
+    {
+        var comment = await _context.Comments.FirstOrDefaultAsync(c => c.PostId == postId && c.Id == commentId);
+        if (comment == null)
+        {
+            return false;
+        }
+
+        _context.Comments.Remove(comment);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
 }

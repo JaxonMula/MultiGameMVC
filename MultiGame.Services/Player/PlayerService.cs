@@ -74,6 +74,19 @@ namespace MultiGame.Services.Player
             return player;
         }
 
+        public async Task<bool> DeletePlayerAsync(int playerId)
+        {
+            var player = await _context.Players.FindAsync(playerId);
+            if (player is null)
+            {
+                return false;
+            }
+
+            _context.Players.Remove(player);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
 
     }
 }

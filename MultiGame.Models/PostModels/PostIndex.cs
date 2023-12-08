@@ -13,4 +13,5 @@ public class PostIndex
 
     public DateTime DatePosted { get; set; }
 
+  
 }

@@ -16,7 +16,7 @@ public class FavoriteGameStatsService : IFavoriteGameStatsService
     public async Task<FavoriteGameStatsModel?> GetStatsForPlayerAsync(int playerId)
     {
         var stats = await _context.FavoriteGameStats
-            .Where(s => s.PlayerId == playerId) //find the playerid 
+            .Where(s => s.PlayerId == playerId) //find the playerid
             .Select(s => new FavoriteGameStatsModel //convert statsentity to statsmodel
             {
                 PlayerId = s.PlayerId,
@@ -26,14 +26,14 @@ public class FavoriteGameStatsService : IFavoriteGameStatsService
                 Rank = s.Rank,
                 GameTitle = _context.Games.FirstOrDefault(g => g.Id == s.GameId).GameTitle
             })
-            .FirstOrDefaultAsync(); 
+            .FirstOrDefaultAsync();
 
         return stats;
     }
 
     public async Task<FavoriteGameStatsModel> CreateStatsAsync(FavoriteGameStatsModel stats)
     {
-        var statsEntity = new FavoriteGameStatsEntity//convert statsentity to statsmodel
+        var statsEntity = new FavoriteGameStatsEntity //convert statsentity to statsmodel
         {
             PlayerId = stats.PlayerId,
             Hours = stats.Hours,
@@ -45,5 +45,31 @@ public class FavoriteGameStatsService : IFavoriteGameStatsService
         await _context.SaveChangesAsync();
 
         return stats; 
+    }
+    public async Task<FavoriteGameStatsModel?> UpdateStatsAsync(int playerId, FavoriteGameStatsModel stats)
+{
+
+    var existingStatsModel = new FavoriteGameStatsModel
+    {
+        PlayerId = stats.PlayerId,
+        Hours = stats.Hours,
+        Rank = stats.Rank,
+    };
+
+    return existingStatsModel;
+}
+
+    public async Task<bool> DeleteStatsAsync(int playerId)
+    {
+        var stats = await _context.FavoriteGameStats.FirstOrDefaultAsync(s => s.PlayerId == playerId);
+
+        if (stats == null)
+        {
+            return false;
+        }
+
+        _context.FavoriteGameStats.Remove(stats);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }
